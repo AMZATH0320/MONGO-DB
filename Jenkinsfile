@@ -1,17 +1,17 @@
 pipeline {
     agent {
-        label 'Docker-Node'
+        label 'j-server'
     }
 
     environment {
-        KUBECONFIG_CREDENTIAL_ID = 'k8s-kubeconfig-dev'
+        KUBECONFIG_CREDENTIAL_ID = 'k8s'
     }
 
     stages {
         stage('Clone DB Repository') {
             steps {
                         sh 'echo "Cloning required code base"'
-                        git branch: 'main', url: 'https://github.com/persevcareers/Project-Final-Backend.git'
+                        git branch: 'master', url: 'https://github.com/AMZATH0320/MONGO-DB.git'
             }
         }
 
