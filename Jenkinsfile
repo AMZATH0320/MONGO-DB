@@ -34,10 +34,10 @@ pipeline {
                             sh "export KUBECONFIG=${kubeconfigPath}"
                             //sh "kubectl scale deploy mongodb --replicas=0 -n three-tier"
                             sh 'echo "Viewing DB Manifest to deploy onto k8s cluster"'
-                            sh "cat DB/database.yml"
+                            sh "cat database.yml"
                             sleep(time: 10, unit: 'SECONDS')
                             sh 'echo "Deploying MongoDB Manifest"'
-                            sh "kubectl apply -f DB/database.yml --validate=false"
+                            sh "kubectl apply -f database.yml --validate=false"
                             sh "kubectl get pods -n three-tier"
                             sh "kubectl get svc -n three-tier"
                             sh "kubectl get secrets -n three-tier"
